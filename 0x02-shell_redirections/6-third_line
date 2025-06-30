@@ -1,2 +1,2 @@
 #!/bin/bash
-head -n 3 README.md | tail -n 0
+head -n 3 iacta | tail -n 0
