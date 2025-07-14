@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# List each file/folder in the current directory
+for file in *
+do
+  if [[ "$file" == *-* ]]; then
+    echo "${file#*-}"
+  fi
+done
