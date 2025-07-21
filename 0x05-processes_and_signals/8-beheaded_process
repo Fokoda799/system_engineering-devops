@@ -1,13 +1,22 @@
 #!/usr/bin/env bash
-# Bash script that kills the 7-highlander process using the SIGKILL signal.
+# Script to kill the "7-highlander" process using SIGKILL (signal 9)
 
 # Find the PID of the 7-highlander process
-PID=$(pgrep -f 7-highlander)
+PID=$(pgrep -f "7-highlander")
 
-# Check if the PID was found
+# Check if the process exists
 if [[ -z "$PID" ]]; then
-  exit 1
+    echo "❌ Process '7-highlander' not found."
+    exit 1
 fi
 
-# Try to kill the process with SIGKILL
+# Kill the process with SIGKILL
 kill -9 "$PID"
+
+# Confirm the kill
+if [[ $? -eq 0 ]]; then
+    echo "✅ Process '7-highlander' (PID: $PID) has been killed with SIGKILL."
+else
+    echo "⚠️ Failed to kill '7-highlander'. You might need sudo privileges."
+    exit 1
+fi
