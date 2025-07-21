@@ -10,11 +10,8 @@ if [[ -z "$PID" ]]; then
     exit 1
 fi
 
-# Kill the process with SIGKILL
-kill -9 "$PID"
-
-# Confirm the kill
-if [[ $? -eq 0 ]]; then
+# Kill the process and check success
+if kill -9 "$PID"; then
     echo "✅ Process '7-highlander' (PID: $PID) has been killed with SIGKILL."
 else
     echo "⚠️ Failed to kill '7-highlander'. You might need sudo privileges."
