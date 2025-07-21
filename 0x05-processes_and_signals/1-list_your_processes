@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # Bash script that displays a list of currently running processes.
-echo "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT STARTED TIME CMD"
-ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,cmd --forest --no-headers
+ps -aux --forest
